@@ -52,4 +52,33 @@ public class WineDAO {
         else
             throw new WineNotFoundException("Unable to find wine with id: " + id);
     }
+
+    public void deleteWine(int id){
+        Wine foundWine = findWine(id);
+        if (foundWine != null)
+            wineList.remove(id);
+        else
+            throw new WineNotFoundException("Unable to find wine with id: " + id);
+    }
+
+    public void createWine(Wine newWine){
+        wineList.add(newWine);
+    }
+
+    public boolean updateWine(Wine wine){
+        boolean updated = true;
+        Wine foundWine = findWine(wine.getId());
+        if (foundWine != null) {
+            //update the existing if found
+            int index = wineList.indexOf(foundWine);
+            wineList.remove(index);
+            wineList.add(index,wine);
+        }
+        else{
+            //otherwise add new
+            wineList.add(wine);
+            updated = false;
+        }
+        return updated;
+    }
 }
