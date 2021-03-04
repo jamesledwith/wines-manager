@@ -2,7 +2,6 @@ package edu.ait.winesmanager.controllers;
 
 import edu.ait.winesmanager.dao.WineDAO;
 import edu.ait.winesmanager.dto.Wine;
-import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@RequestMapping("api/v1")
 public class WineController {
 
     @Autowired
