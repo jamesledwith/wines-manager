@@ -10,9 +10,11 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
+
 @Component
 @RestController
 public class WineDAO {
+
     private List<Wine> wineList = new ArrayList(Arrays.asList(
             new Wine(0, "CHATEAU DE SAINT COSME", 2009, "Grenache / Syrah", "France", "Southern Rhone / Gigondas", "The aromas of fruit and spice give one a hint of the light drinkability of this lovely wine, which makes an excellent complement to fish dishes.", "saint_cosme.jpg"),
             new Wine(1, "LAN RIOJA CRIANZA", 2006, "Tempranillo", "Spain", "Rioja", "A resurgence of interest in boutique vineyards has opened the door for this excellent foray into the dessert wine market. Light and bouncy, with a hint of black truffle, this wine will not fail to tickle the taste buds.", "lan_rioja.jpg"),

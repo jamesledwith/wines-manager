@@ -7,13 +7,11 @@ public class Wine {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
-
     private String name;
     private int year;
     private String grapes;
     private String country;
     private String region;
-
     @Lob
     private String description;
     private String picture;
