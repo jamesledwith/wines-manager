@@ -30,7 +30,7 @@ public class Wine {
         this.picture = picture;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
