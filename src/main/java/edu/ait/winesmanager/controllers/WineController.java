@@ -1,18 +1,17 @@
 package edu.ait.winesmanager.controllers;
 
-import edu.ait.winesmanager.dao.WineDAO;
 import edu.ait.winesmanager.dto.Wine;
 import edu.ait.winesmanager.exceptions.WineNotFoundException;
 import edu.ait.winesmanager.repositories.WineRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-
 import java.net.URI;
-import java.util.List;
 import java.util.Optional;
 
 
@@ -24,9 +23,14 @@ public class WineController {
     WineRepository wineRepository;
 
     @GetMapping("wines")
+    public Page<Wine> getWinesByPage(Pageable pageable){
+        return wineRepository.findAll(pageable);
+    }
+
+   /* @GetMapping("wines")
     public List<Wine> getAllWines(){
         return wineRepository.findAll();
-    }
+    }*/
 
     @GetMapping("wines/{wineId}")
     public Wine getWineById(@PathVariable("wineId") int wineId){
